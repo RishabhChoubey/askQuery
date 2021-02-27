@@ -38,7 +38,7 @@ import Cookie from "js-cookie";
 export const postList = () => async (dispatch) => {
   dispatch({ type: POST_LIST_REQUEST });
 
-  const { data } = await axios.get("api/posts/");
+  const { data } = await axios.get("/api/posts/");
   console.log("data", data);
   if (data.err) {
     dispatch({ type: POST_LIST_FAIL, payload: data.msg });
@@ -50,7 +50,7 @@ export const postList = () => async (dispatch) => {
 export const postDetail = (query) => async (dispatch) => {
   dispatch({ type: POST_DETAILS_REQUEST });
 
-  const { data } = await axios.get("api/posts/postr/" + query);
+  const { data } = await axios.get("/api/posts/postr/" + query);
   console.log("data", data);
   if (data.err) {
     dispatch({ type: POST_DETAILS_FAIL, payload: data.msg });
@@ -73,7 +73,7 @@ export const postCreate = (message) => async (dispatch) => {
   const userInfo = Cookie.getJSON("userInfo");
   //console.log(userInfo.token);
   const { data } = await axios.post(
-    "api/posts/post/",
+    "/api/posts/post/",
     {
       message,
     },
@@ -96,7 +96,7 @@ export const postReview = (message, id) => async (dispatch) => {
   dispatch({ type: POST_REVIEW_CREATE_REQUEST });
 
   const { data } = await axios.post(
-    "api/review/post/" + id,
+    "/api/review/post/" + id,
     {
       message,
     },
@@ -119,7 +119,7 @@ export const remove = (id, _id) => async (dispatch) => {
   dispatch({ type: REVIEW_DELETE_REQUEST });
 
   const { data } = await axios.put(
-    "api/posts/post/remove/" + id,
+    "/api/posts/post/remove/" + id,
     {
       _id,
     },
@@ -144,7 +144,7 @@ export const postLike = (id, _id) => async (dispatch) => {
   dispatch({ type: POST_LIKE_REQUEST });
 
   const { data } = await axios.put(
-    "api/posts/like/" + id,
+    "/api/posts/like/" + id,
     {
       _id,
     },
@@ -170,7 +170,7 @@ export const postUnlike = (id, _id) => async (dispatch) => {
   dispatch({ type: POST_UNLIKE_REQUEST });
 
   const { data } = await axios.put(
-    "api/posts/unlike/" + id,
+    "/api/posts/unlike/" + id,
     {
       _id,
     },
@@ -203,7 +203,7 @@ export const postDelete = (id) => async (dispatch) => {
   dispatch({ type: POST_DELETE_REQUEST });
   console.log("delete", id);
   const { data } = await axios.delete(
-    "api/posts/post/delete/" + id,
+    "/api/posts/post/delete/" + id,
 
     {
       headers: {
