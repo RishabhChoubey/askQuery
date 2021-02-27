@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  margin: 15px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+}
+.error {
+  color: red;
+}
+.sign {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.button {
+  width: 100px;
+  background-color: transparent;
+  color: white;
+}
+.button:hover {
+  background-color: green;
+}

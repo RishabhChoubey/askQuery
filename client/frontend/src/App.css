@@ -1,0 +1,191 @@
+.App {
+  text-align: center;
+  background-image: url("bg2.svg");
+
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.header {
+  position: sticky;
+  top: 0vh;
+  display: flex;
+  height: 8vh;
+  background: rgb(26, 140, 65);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 100;
+}
+.left {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  margin: 20px;
+  align-items: center;
+  min-width: 200px;
+}
+.right {
+  margin: 20px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.option {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  width: 100%;
+  background-color: gray;
+  transition: 0.1s;
+}
+
+.show {
+  display: flex;
+  position: sticky;
+  top: 8vh;
+  height: 50px;
+  width: 100%;
+  transition: 0.1s;
+}
+
+a,
+.link {
+  text-decoration: none;
+  color: inherit;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+  text-emphasis: none;
+  text-transform: none;
+  text-decoration-skip: 0;
+}
+a:hover,
+.link:hover {
+  color: red;
+}
+li {
+  font-weight: 100;
+  animation: list 0.1s linear;
+  margin-bottom: 5px;
+}
+ul {
+  list-style: none;
+  text-decoration: none;
+}
+
+@keyframes list {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dot {
+  position: relative;
+  height: 2px;
+  width: 20px;
+  background-color: black;
+  transition: 0.1s;
+}
+.dot:after {
+  position: absolute;
+  top: -4px;
+  content: "";
+  height: 2px;
+  left: 0;
+  width: 20px;
+  background-color: black;
+  transition: 0.1s;
+}
+.dot:before {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  content: "";
+  height: 2px;
+  width: 20px;
+  background-color: black;
+  transition: 0.1s;
+}
+
+.close {
+  position: relative;
+  height: 0px;
+  width: 20px;
+  background-color: black;
+
+  transition: 0.1s;
+}
+
+.close:after {
+  position: absolute;
+  top: 0px;
+  content: "";
+  height: 2px;
+  left: 0;
+  width: 20px;
+  background-color: black;
+
+  transform: rotate(-45deg);
+  transition: 0.1s;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+.close:before {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  content: "";
+  height: 2px;
+  width: 20px;
+  background-color: black;
+
+  transform: rotate(45deg);
+  transition: 0.1s;
+}

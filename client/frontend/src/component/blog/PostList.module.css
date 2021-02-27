@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  height: auto;
+  z-index: 1;
+}
+.postButton {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  width: 100px;
+  border-radius: 50px;
+  background-image: url("../../bg2.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 99;
+  box-shadow: inset -2px -5px 5px white, inset 2px 5px 5px black;
+}
+
+.blur {
+  height: 100%;
+  width: 100%;
+  filter: blur(10px);
+}
+.nonblur {
+  height: 100%;
+  width: 100%;
+}
