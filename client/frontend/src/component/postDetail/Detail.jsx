@@ -196,7 +196,12 @@ const Detail = (props) => {
                       )}
                     />
                     {message ? (
-                      <button onClick={postcomment}>comment</button>
+                      <button
+                        onClick={postcomment}
+                        style={{ marginBottom: "20px" }}
+                      >
+                        comment
+                      </button>
                     ) : (
                       ""
                     )}
