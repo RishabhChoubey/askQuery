@@ -17,7 +17,7 @@ const PostCard = ({ data }) => {
     threshold: 0,
   });
   const variants = {
-    initial: { opacity: 0.5, scale: 0.8 },
+    initial: { opacity: 1, scale: 1 },
     animate: {
       y: 0,
       opacity: 1,
@@ -53,11 +53,11 @@ const PostCard = ({ data }) => {
       end={{
         scale: 0,
       }}
-      whileHover={{
-        scale: [0.98, 1.1],
-        rotateY: [10, 0],
-        transformStyle: "preserve-3d",
-      }}
+      // whileHover={{
+      //   scale: [0.98, 1.1],
+      //   rotateY: [10, 0],
+      //   transformStyle: "preserve-3d",
+      // }}
       ref={ref}
     >
       <div className={style.react}>
