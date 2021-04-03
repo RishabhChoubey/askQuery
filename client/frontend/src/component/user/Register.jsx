@@ -15,9 +15,9 @@ const Register = (props) => {
 
     dispatch(register(name, email, password));
   };
-  //   useEffect(() => {
-  //     if (success) props.history.push("/");
-  //   }, [success]);
+  useEffect(() => {
+    if (success) props.history.push("/");
+  }, [success]);
 
   return (
     <div className={styles.container}>
