@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, memo } from "react";
 import ReactQuill from "react-quill";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import Cookie from "js-cookie";
 import {
   postDetail,
   postReview,
@@ -54,7 +55,8 @@ const Detail = (props) => {
   const query = props.match.params.id;
 
   const input = useRef();
-  const { userInfo } = useSelector((state) => state.userSignin);
+  const user = Cookie.getJSON("userInfo");
+
   const {
     review: removeReview,
     success: reviewRemoveSuccess,
@@ -106,7 +108,7 @@ const Detail = (props) => {
     }
     if (revsucces) {
       let reviews = rev;
-      reviews["user"] = { name: userInfo.name };
+      reviews["user"] = { name: user.name };
       setrev([review, ...reviews]);
       dispatch(postReviewSuc());
       console.log("runsuc update");
@@ -114,7 +116,7 @@ const Detail = (props) => {
   }, [revsucces, success]);
 
   const postcomment = () => {
-    if (userInfo) {
+    if (user) {
       dispatch(postReview(message, post._id));
       input.current.value = "";
       setshow(false);
@@ -230,8 +232,7 @@ const Detail = (props) => {
                     dislike={it.dislike}
                     reviews={null}
                   /> */}
-                  {userInfo &&
-                  (userInfo.id == it.user._id || userInfo.id == it.user) ? (
+                  {user && (user.id == it.user._id || user.id == it.user) ? (
                     <button
                       onClick={() => del(it._id, post._id)}
                       className={style.reviewDelete}
