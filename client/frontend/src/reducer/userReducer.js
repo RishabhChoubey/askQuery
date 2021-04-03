@@ -45,6 +45,8 @@ function userResReducer(state = {}, action) {
       return { loading: false, userInfo: action.payload, success: true };
     case USER_REGISTER_FAIL:
       return { loading: false, rrerror: action.payload, success: false };
+    case "UNSUCCESS":
+      return { userInfo: user };
     default:
       return state;
   }

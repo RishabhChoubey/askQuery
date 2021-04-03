@@ -77,6 +77,7 @@ const register = (name, email, password) => async (dispatch) => {
     dispatch({ type: USER_REGISTER_FAIL, payload: data.msg });
   } else {
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data.msg });
+    Cookie.set("userInfo", JSON.stringify(data.msg));
   }
 };
 
@@ -86,6 +87,9 @@ const logoutAction = () => (dispatch) => {
 };
 
 const unsuccess = () => (dispatch) => {
+  dispatch({ type: "UNSUCCESS" });
+};
+const unsuccRes = () => (dispatch) => {
   dispatch({ type: "UNSUCCESS" });
 };
 const resetPass = (email) => async (dispatch) => {
@@ -133,4 +137,5 @@ export {
   resetForget,
   tokenVerify,
   updatePassword,
+  unsuccRes,
 };
