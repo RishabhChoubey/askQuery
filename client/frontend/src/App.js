@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import Cookie from "js-cookie";
 import Router from "./router/Router";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

@@ -2,15 +2,15 @@ import React, { useState, useEffect, memo } from "react";
 import style from "./Reaction.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { postLike, postUnlike } from "../../action/postAction";
-
+import Cookie from "js-cookie";
 const Reaction = ({ like, dislike, reviews, id, deletePost, userid }) => {
   const dispatch = useDispatch();
 
-  const { userInfo } = useSelector((state) => state.userSignin);
+  const user = Cookie.getJSON("userInfo");
 
   const likeButton = (id, _id) => {
-    if (userInfo) {
-      if (!like.includes(userInfo.id)) {
+    if (user) {
+      if (!like.includes(user.id)) {
         dispatch(postLike(id, _id));
       } else {
         dispatch(postUnlike(id, _id));
@@ -26,7 +26,7 @@ const Reaction = ({ like, dislike, reviews, id, deletePost, userid }) => {
       <div
         style={{ cursor: "pointer" }}
         onClick={() => {
-          if (userInfo) likeButton(id, userInfo.id);
+          if (user) likeButton(id, user.id);
           else {
             alert("LOGIN FIRST");
           }
@@ -36,9 +36,7 @@ const Reaction = ({ like, dislike, reviews, id, deletePost, userid }) => {
       </div>
 
       <div>reviews {reviews}</div>
-      {userInfo && userInfo.id == userid && (
-        <div onClick={() => del()}>delete</div>
-      )}
+      {user && user.id == userid && <div onClick={() => del()}>delete</div>}
     </div>
   );
 };

@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import style from "./PostList.module.css";
 import PostCard from "./post/PostCard";
 import PostModal from "./modal/PostModal";
-
+import Cookie from "js-cookie";
 const PostList = () => {
   const [createpost, setcreatepost] = useState(false);
   const { post, loading, error } = useSelector((state) => state.postList);
@@ -25,7 +25,7 @@ const PostList = () => {
   const { success: postDeleteSuccess, error: postError } = useSelector(
     (state) => state.postDelete
   );
-  const { userInfo } = useSelector((state) => state.userSignin);
+  const user = Cookie.getJSON("userInfo");
   console.log(post, "posts", loading, error);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -78,7 +78,7 @@ const PostList = () => {
             ))}
         <PostModal isVisible={createpost} change={changePostState}></PostModal>
         <AnimatePresence>
-          {!userInfo ? (
+          {!user ? (
             <></>
           ) : (
             <motion.div
