@@ -11,7 +11,7 @@ import { logoutAction } from "./action/userAction";
 function App() {
   const dispatch = useDispatch();
   const [option, setoption] = useState(false);
-  const { userInfo } = useSelector((state) => state.userSignin);
+  const user = Cookie.getJSON("userInfo");
   const logout = () => {
     dispatch(logoutAction());
   };
@@ -33,9 +33,9 @@ function App() {
               <Link to="/signin">signin </Link>
             </div>
             <div className="link">
-              {userInfo ? <></> : <Link to="/register">signup </Link>}
+              {user ? <></> : <Link to="/register">signup </Link>}
             </div>
-            {userInfo ? (
+            {user ? (
               <>
                 <div onClick={logout} className="link">
                   logout
