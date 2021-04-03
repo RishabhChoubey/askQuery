@@ -117,6 +117,7 @@ const Detail = (props) => {
     if (userInfo) {
       dispatch(postReview(message, post._id));
       input.current.value = "";
+      setshow(false);
     } else {
       if (window.confirm("are you want to signin to post comment")) {
         history.push("/signin");
@@ -205,7 +206,12 @@ const Detail = (props) => {
                     ) : (
                       ""
                     )}
-                    <button onClick={() => setshow(false)}>cancel</button>
+                    <button
+                      onClick={() => setshow(false)}
+                      style={{ marginBottom: "10px" }}
+                    >
+                      cancel
+                    </button>
                   </motion.div>{" "}
                 </AnimatePresence>
               ) : (
