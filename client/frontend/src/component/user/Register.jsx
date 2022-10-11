@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { register } from "../../action/userAction";
+import { register,unsuccRes } from "../../action/userAction";
 import styles from "./Form.module.css";
 
 const Register = (props) => {
@@ -16,7 +16,13 @@ const Register = (props) => {
     dispatch(register(name, email, password));
   };
   useEffect(() => {
-    if (success) props.history.push("/");
+    if (success)
+    { 
+      dispatch(unsuccRes());
+      props.history.push("/");}
+
+
+
   }, [success]);
 
   return (

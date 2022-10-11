@@ -10,6 +10,7 @@ const reaction = require("./route/ReactionRoute");
 const users = require("./route/UsersRoute");
 const post = require("./route/PostsRoute");
 const app = express();
+require("dotenv").config();
 const { MONGOURI } = require("./utilty/key");
 ///////////////////////////////middleware//////////////////////////////
 

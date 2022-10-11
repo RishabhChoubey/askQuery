@@ -1,9 +1,10 @@
+require("dotenv").config();
+
 module.exports = {
-  MONGOURI:
-    "mongodb+srv://rish:CxiW1CsPeAp46oPU@cluster0.kjvxf.mongodb.net/query",
-  cloud_name: "duvsvsxhk",
-  api_key: "654997219996181",
-  api_secret: "JBSXu1uEL5oLUu0bD_lOYJ-RZxI",
-  user_EMAIL: "tempidforcheck@gmail.com",
-  pass_PASS: "rishabhcool13",
+  MONGOURI: process.env.MONGOURI,
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.api_key,
+  api_secret: process.env.api_secret,
+  user_EMAIL: process.env.user_EMAIL,
+  pass_PASS: process.env.pass_PASS,
 };

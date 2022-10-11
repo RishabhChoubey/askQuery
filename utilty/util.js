@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-
+require("dotenv").config();
 const getToken = (user) => {
   return jwt.sign(
     {
@@ -7,7 +7,7 @@ const getToken = (user) => {
       name: user.name,
       email: user.email,
     },
-    "abcdefghijk"
+    process.env.SecretCode
   );
 };
 const isAuth = (req, res, next) => {
