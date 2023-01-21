@@ -34,5 +34,4 @@ Schema.pre("remove", { query: false, document: true }, async function (next) {
   });
 });
 
-const model = mongoose.model("Post", Schema);
-module.exports = model;
+module.exports = mongoose.model("Post", Schema);

@@ -36,7 +36,8 @@ const Register = (props) => {
           >
             {" "}
             {rrerror && (rrerror.password || rrerror.user)}
-          </div>
+          <
+            /div>
           <input
             className="input"
             onChange={(e) => setusername(e.target.value)}

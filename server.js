@@ -28,9 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 try {
   mongoose.connect(MONGOURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: true,
   });
 
   console.log("conected....to mongoose");
@@ -47,14 +45,14 @@ app.use("/api/review", review);
 
 //////////////////////////////////////////////
 
-if (process.env.NODE_ENV === "production") {
-  console.log("production");
-  app.use(express.static("client/frontend/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/frontend/build/index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   console.log("production");
+//   app.use(express.static("client/frontend/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client/frontend/build/index.html"));
+//   });
+// }
 
-app.listen(process.env.PORT || 2000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("listenning...");
 });

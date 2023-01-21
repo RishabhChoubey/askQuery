@@ -19,6 +19,7 @@ import {
   USER_TOKEN_VERIFY_SUCCESS,
   USER_TOKEN_VERIFY_FAIL,
 } from "../constant/userConstant";
+import { baseUrl } from "../key";
 
 // const update = ({ userId, name, email, password }) => async (
 //   dispatch,
@@ -51,7 +52,7 @@ import {
 const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST });
 
-  const { data } = await axios.post("/api/users/signin", {
+  const { data } = await axios.post(`${baseUrl}/api/users/signin`, {
     email,
     password,
   });
@@ -67,7 +68,7 @@ const signin = (email, password) => async (dispatch) => {
 const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST });
 
-  const { data } = await axios.post("/api/users/register", {
+  const { data } = await axios.post(`${baseUrl}/api/users/register`, {
     name,
     email,
     password,
@@ -94,7 +95,7 @@ const unsuccRes = () => (dispatch) => {
 };
 const resetPass = (email) => async (dispatch) => {
   dispatch({ type: USER_FORGET_REQUEST });
-  const { data } = await axios.post("/api/users/forget", {
+  const { data } = await axios.post(`${baseUrl}/api/users/forget`, {
     email,
   });
   if (data.err) {
@@ -109,7 +110,7 @@ const resetForget = () => async (dispatch) => {
 
 const tokenVerify = (token) => async (dispatch) => {
   dispatch({ type: USER_TOKEN_VERIFY_REQUEST });
-  const { data } = await axios.get("/api/users/verify/" + token);
+  const { data } = await axios.get(`${baseUrl}/api/users/verify/` + token);
   if (data.err) {
     dispatch({ type: USER_TOKEN_VERIFY_FAIL });
   } else {
@@ -118,7 +119,7 @@ const tokenVerify = (token) => async (dispatch) => {
 };
 const updatePassword = (pass) => async (dispatch) => {
   dispatch({ type: USER_UPDATE_REQUEST });
-  const { data } = await axios.put("/api/users/updatePass", {
+  const { data } = await axios.put(`${baseUrl}/api/users/updatePass`, {
     pass,
   });
   if (data.err) {

@@ -13,13 +13,15 @@ exports.post = (req, res) => {
 };
 
 exports.get = (req, res) => {
-  Post.find({})
+  Post.find()
     .sort({ createdAt: -1 })
     .populate("user")
     .then((u) => {
+      console.log("enterd post.............");
       if (!u) res.json({ err: true, msg: { post: "fail" } });
       res.json({ err: false, msg: { post: u } });
-    });
+    })
+    .catch((err) => console.log(error));
 };
 
 exports.getreview = (req, res) => {
