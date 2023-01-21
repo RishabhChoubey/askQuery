@@ -44,7 +44,7 @@ const PostList = () => {
       <div>
         {!loading
           ? post &&
-            post.map((it) => {
+            post.map((it, index) => {
               if (success) {
                 if (liked && it._id == liked._id) {
                   it.like = liked.like;
@@ -61,13 +61,13 @@ const PostList = () => {
               }
 
               return (
-                <div className={style.container}>
+                <div className={style.container} key={index}>
                   <PostCard data={it} />{" "}
                 </div>
               );
             })
-          : [...Array(10)].map(() => (
-              <div style={{ margin: "10px" }}>
+          : [...Array(10)].map((index) => (
+              <div style={{ margin: "10px" }} key={index}>
                 <SkeletonTheme color="#7b4">
                   <Skeleton height={50} width={"40%"} count={1}></Skeleton>
                 </SkeletonTheme>
